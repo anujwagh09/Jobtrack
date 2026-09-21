@@ -1,5 +1,5 @@
 function Sidebar(){
-    return (<aside>
+    return (<aside className="sidebar">
         <h2>JobTracker</h2>
         <nav>
             <ul>

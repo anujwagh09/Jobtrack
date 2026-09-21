@@ -1,6 +1,6 @@
 function StatCard(props){
     return (
-       <div>
+       <div className="stat-card">
          <h3>{props.title}</h3>
         <p>{props.value}</p>
        </div>

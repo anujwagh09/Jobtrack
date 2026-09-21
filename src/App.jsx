@@ -14,9 +14,10 @@ function App() {
 
   return (<>
     <Navbar />
+    <div className="app-layout">
     <Sidebar />
     <Dashboard />
-
+    </div>
    
     </>
   );
