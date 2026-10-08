@@ -1,27 +1,52 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
-import Sidebar from './components/Sidebar'
-import Dashboard from './components/Dashboard'
-import Navbar from './components/Navbar'
-import JobCard from './components/JobCard'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+
+import DashboardPage from "./pages/DashboardPage";
+import ApplicationsPage from "./pages/ApplicationsPage";
+import InterviewsPage from "./pages/InterviewsPage";
+import OffersPage from "./pages/OffersPage";
+import SettingsPage from "./pages/SettingsPage";
+
+import "./App.css";
 
 function App() {
- 
+  return (
+    <BrowserRouter>
+      <Navbar />
 
+      <div className="app-layout">
+        <Sidebar />
 
-  return (<>
-    <Navbar />
-    <div className="app-layout">
-    <Sidebar />
-    <Dashboard />
-    </div>
-   
-    </>
+        <main className="dashboard">
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+
+            <Route
+              path="/applications"
+              element={<ApplicationsPage />}
+            />
+
+            <Route
+              path="/interviews"
+              element={<InterviewsPage />}
+            />
+
+            <Route
+              path="/offers"
+              element={<OffersPage />}
+            />
+
+            <Route
+              path="/settings"
+              element={<SettingsPage />}
+            />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
-
-export default App
+export default App;
