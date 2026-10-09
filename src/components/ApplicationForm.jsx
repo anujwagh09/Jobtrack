@@ -50,7 +50,7 @@ function ApplicationForm({ onAddApplication }) {
         <option>Rejected</option>
       </select>
 
-      <button type="submit">
+      <button className="btn btn-primary" type="submit">
         Add Application
       </button>
 

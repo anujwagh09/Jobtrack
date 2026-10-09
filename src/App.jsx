@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
@@ -12,6 +13,26 @@ import SettingsPage from "./pages/SettingsPage";
 import "./App.css";
 
 function App() {
+  const [applications, setApplications] = useState([
+  {
+    id: 1,
+    company: "Amazon",
+    role: "Software Development Engineer",
+    status: "Applied"
+  },
+  {
+    id: 2,
+    company: "Google",
+    role: "Frontend Developer",
+    status: "Interview"
+  },
+  {
+    id: 3,
+    company: "Microsoft",
+    role: "Java Developer",
+    status: "Offer"
+  }
+]);
   return (
     <BrowserRouter>
       <Navbar />
@@ -21,12 +42,20 @@ function App() {
 
         <main className="dashboard">
           <Routes>
-            <Route path="/" element={<DashboardPage />} />
+           <Route
+  path="/"
+  element={<DashboardPage applications={applications} />}
+/>
 
-            <Route
-              path="/applications"
-              element={<ApplicationsPage />}
-            />
+           <Route
+  path="/applications"
+  element={
+    <ApplicationsPage
+      applications={applications}
+      setApplications={setApplications}
+    />
+  }
+/>
 
             <Route
               path="/interviews"
